@@ -41,6 +41,14 @@ const Calculator = () => {
     }
   };
 
+  const handleDivision = (a: number, b: number): number => {
+    if (b === 0) {
+      setDisplay("Error: Division by zero");
+      return 0;
+    }
+    return a / b;
+  };
+
   const handleNumberClick = (value: string) => {
     if (display === "0") {
       setDisplay(value);
@@ -74,7 +82,7 @@ const Calculator = () => {
           result = prevValue * currentValue;
           break;
         case "÷":
-          result = prevValue / currentValue;
+          result = handleDivision(prevValue, currentValue);
           break;
 
         default:
