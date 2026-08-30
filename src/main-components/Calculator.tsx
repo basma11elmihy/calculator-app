@@ -41,10 +41,10 @@ const Calculator = () => {
     }
   };
 
-  const handleDivision = (a: number, b: number): number => {
+  const handleDivision = (a: number, b: number): number | string => {
     if (b === 0) {
-      setDisplay("Error: Division by zero");
-      return 0;
+      setDisplay("0");
+      return "Error: Division by zero"; // Return a default value to avoid NaN
     }
     return a / b;
   };
@@ -67,7 +67,7 @@ const Calculator = () => {
 
   const handleEqualsClick = () => {
     if (previousValue !== null && operator !== null) {
-      let result: number;
+      let result: number | string;
       const currentValue = Number(display);
       const prevValue = previousValue;
 
